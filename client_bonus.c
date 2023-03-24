@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/24 03:25:49 by yokten            #+#    #+#             */
-/*   Updated: 2023/03/24 09:37:10 by yokten           ###   ########.fr       */
+/*   Created: 2023/03/23 21:28:24 by yokten            #+#    #+#             */
+/*   Updated: 2023/03/24 09:23:56 by yokten           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 void	show_error(int err)
 {
@@ -29,14 +29,14 @@ void	show_error(int err)
 
 void	send(int pid, int ch)
 {
-	char	c;
-	int		i;
+	unsigned char	c;
+	int				i;
 
-	c = ch;
 	i = 128;
+	c = ch;
 	while (i > 0)
 	{
-		if (i <= c)	
+		if (i <= c)
 		{
 			if (kill(pid, SIGUSR1) == -1)
 				show_error(2);
@@ -50,6 +50,17 @@ void	send(int pid, int ch)
 	}
 }
 
+void	received(int a)
+{
+	static int	flag = 1;
+
+	if (a == SIGUSR2 && flag == 1)
+	{
+		ft_putstr_fd("Message sent succesfully!", 1);
+		flag = 0;
+	}
+}
+
 int	main(int ac, char **av)
 {
 	if (!av[1])
@@ -58,11 +69,12 @@ int	main(int ac, char **av)
 		show_error(1);
 	else if (ac == 3)
 	{
-		int		pid;
+		int	pid;
 		char	*str;
 		int		i;
 
 		i = 0;
+		signal (SIGUSR2, received);
 		pid = ft_atoi(av[1]);
 		while (av[1][i])
 		{

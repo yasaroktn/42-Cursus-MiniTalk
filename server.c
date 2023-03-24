@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/24 03:26:05 by yokten            #+#    #+#             */
+/*   Updated: 2023/03/24 03:28:36 by yokten           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
 void    convert_char(int data)
@@ -14,7 +26,6 @@ void    convert_char(int data)
 	}
 	else
 		i--;
-	
 }
 
 void    sig_handler(int sig)
@@ -23,7 +34,6 @@ void    sig_handler(int sig)
         convert_char(1);
     else if (sig == SIGUSR2)
         convert_char(0);
-    
 }
 
 int main()
@@ -31,10 +41,10 @@ int main()
     int pid;
 
     pid = getpid();
-    ft_putnbr_fd(pid, 1);
-    signal(SIGUSR1, sig_handler);
-    signal(SIGUSR2, sig_handler);
-    while(1)
-        pause();
-    return(0);
+    ft_putnbr_fd (pid, 1);
+    signal (SIGUSR1, sig_handler);
+    signal (SIGUSR2, sig_handler);
+    while (1)
+        pause ();
+    return (0);
 }

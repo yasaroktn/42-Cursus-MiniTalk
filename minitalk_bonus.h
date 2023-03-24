@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   minitalk_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/24 03:25:55 by yokten            #+#    #+#             */
-/*   Updated: 2023/03/24 03:26:01 by yokten           ###   ########.fr       */
+/*   Created: 2023/03/24 03:25:52 by yokten            #+#    #+#             */
+/*   Updated: 2023/03/24 03:27:08 by yokten           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-#define MINITALK_H
+#ifndef MINITALK_BONUS_H
+#define MINITALK_BONUS_H
 #include <signal.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -21,6 +21,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_strchr(const char *s, int c);
-void    convert_char(int data);
+void    convert_char(int data, pid_t *client_pid);
 
 #endif 
