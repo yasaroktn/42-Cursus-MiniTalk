@@ -6,7 +6,7 @@
 /*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 03:25:49 by yokten            #+#    #+#             */
-/*   Updated: 2023/03/24 09:37:10 by yokten           ###   ########.fr       */
+/*   Updated: 2023/04/06 22:15:38 by yokten           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	send(int pid, int ch)
 	i = 128;
 	while (i > 0)
 	{
-		if (i <= c)	
+		if (i <= c)
 		{
 			if (kill(pid, SIGUSR1) == -1)
 				show_error(2);
@@ -52,16 +52,16 @@ void	send(int pid, int ch)
 
 int	main(int ac, char **av)
 {
+	char	*str;
+	int		pid;
+	int		i;
+
 	if (!av[1])
 		show_error(0);
 	else if (!av[2])
 		show_error(1);
 	else if (ac == 3)
 	{
-		int		pid;
-		char	*str;
-		int		i;
-
 		i = 0;
 		pid = ft_atoi(av[1]);
 		while (av[1][i])

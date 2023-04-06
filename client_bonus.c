@@ -6,7 +6,7 @@
 /*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 21:28:24 by yokten            #+#    #+#             */
-/*   Updated: 2023/03/24 09:23:56 by yokten           ###   ########.fr       */
+/*   Updated: 2023/04/06 22:21:55 by yokten           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,16 @@ void	received(int a)
 
 int	main(int ac, char **av)
 {
+	int		pid;
+	char	*str;
+	int		i;
+
 	if (!av[1])
 		show_error(0);
 	else if (!av[2])
 		show_error(1);
 	else if (ac == 3)
 	{
-		int	pid;
-		char	*str;
-		int		i;
-
 		i = 0;
 		signal (SIGUSR2, received);
 		pid = ft_atoi(av[1]);

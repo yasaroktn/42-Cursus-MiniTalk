@@ -6,7 +6,7 @@
 /*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 03:26:08 by yokten            #+#    #+#             */
-/*   Updated: 2023/03/24 03:26:10 by yokten           ###   ########.fr       */
+/*   Updated: 2023/04/06 22:28:30 by yokten           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,5 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (*s == (char)c)
 		return ((char *)s);
-	return (NULL);
+	return (0);
 }
